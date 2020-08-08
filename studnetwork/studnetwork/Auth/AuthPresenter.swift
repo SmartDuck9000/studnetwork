@@ -10,12 +10,14 @@ import UIKit
 
 class AuthPresenter: NSObject {
     private var view: AuthViewController
+    private var authManager: AuthDelegate
     
-    init(view: AuthViewController) {
+    init(view: AuthViewController, model: AuthDelegate) {
         self.view = view
+        self.authManager = model
     }
     
     public func auth() {
-        
+        authManager.auth()
     }
 }

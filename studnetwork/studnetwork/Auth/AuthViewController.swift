@@ -23,7 +23,9 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter = AuthPresenter(view: self)
+        let manager = VkAuthManager()
+        presenter = AuthPresenter(view: self, model: manager)
+        
         setupLayout()
     }
     
