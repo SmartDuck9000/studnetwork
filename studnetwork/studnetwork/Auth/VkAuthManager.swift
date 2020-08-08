@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AuthManager: AuthDelegate {
+class VkAuthManager: AuthDelegate {
     var token: String = ""
     
     func auth() {
