@@ -9,22 +9,54 @@
 import UIKit
 
 class AuthViewController: UIViewController {
-
+    
+    private var presenter: AuthPresenter?
+    
+    private var authButton = UIButton()
+    
+    private var headerImageView = UIImageView()
+    private var footerImageView = UIImageView()
+    private var leftSideImageView = UIImageView()
+    private var rightSideImageView = UIImageView()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        presenter = AuthPresenter(view: self)
+        setupLayout()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupLayout() {
+        setupAuthButton()
+        
+        setupHeader()
+        setupLeftSide()
+        setupRightSide()
+        setupFooter()
     }
-    */
-
+    
+    private func setupAuthButton() {
+        authButton.addTarget(self, action: #selector(auth), for: .touchUpInside)
+    }
+    
+    private func setupHeader() {
+        
+    }
+    
+    private func setupFooter() {
+        
+    }
+    
+    private func setupLeftSide() {
+        
+    }
+    
+    private func setupRightSide() {
+        
+    }
+    
+    @objc private func auth() {
+        self.presenter?.auth()
+    }
 }
