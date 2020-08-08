@@ -10,7 +10,7 @@
 		CE639DF324DF251F00232500 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE639DF224DF251F00232500 /* AuthViewController.swift */; };
 		CE639DF524DF262600232500 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE639DF424DF262600232500 /* AuthPresenter.swift */; };
 		CE639DF724DF283B00232500 /* AuthDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE639DF624DF283B00232500 /* AuthDelegate.swift */; };
-		CE639DF924DF2B2900232500 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE639DF824DF2B2900232500 /* AuthManager.swift */; };
+		CE639DF924DF2B2900232500 /* VkAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE639DF824DF2B2900232500 /* VkAuthManager.swift */; };
 		CE690F2124C641D900D49345 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE690F2024C641D900D49345 /* AppDelegate.swift */; };
 		CE690F2324C641D900D49345 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE690F2224C641D900D49345 /* SceneDelegate.swift */; };
 		CE690F2524C641D900D49345 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE690F2424C641D900D49345 /* ViewController.swift */; };
@@ -23,7 +23,7 @@
 		CE639DF224DF251F00232500 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		CE639DF424DF262600232500 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		CE639DF624DF283B00232500 /* AuthDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDelegate.swift; sourceTree = "<group>"; };
-		CE639DF824DF2B2900232500 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		CE639DF824DF2B2900232500 /* VkAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkAuthManager.swift; sourceTree = "<group>"; };
 		CE690F1D24C641D900D49345 /* studnetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = studnetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE690F2024C641D900D49345 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE690F2224C641D900D49345 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 				CE639DF224DF251F00232500 /* AuthViewController.swift */,
 				CE639DF424DF262600232500 /* AuthPresenter.swift */,
 				CE639DF624DF283B00232500 /* AuthDelegate.swift */,
-				CE639DF824DF2B2900232500 /* AuthManager.swift */,
+				CE639DF824DF2B2900232500 /* VkAuthManager.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -159,7 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE639DF524DF262600232500 /* AuthPresenter.swift in Sources */,
-				CE639DF924DF2B2900232500 /* AuthManager.swift in Sources */,
+				CE639DF924DF2B2900232500 /* VkAuthManager.swift in Sources */,
 				CE639DF724DF283B00232500 /* AuthDelegate.swift in Sources */,
 				CE639DF324DF251F00232500 /* AuthViewController.swift in Sources */,
 				CE690F2524C641D900D49345 /* ViewController.swift in Sources */,
