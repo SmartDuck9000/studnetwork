@@ -12,6 +12,6 @@ class VkAuthManager: AuthDelegate {
     var token: String = ""
     
     func auth() {
-        <#code#>
+        
     }
 }
