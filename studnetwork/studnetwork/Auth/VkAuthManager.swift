@@ -7,11 +7,48 @@
 //
 
 import UIKit
+import VK_ios_sdk
 
-class VkAuthManager: AuthDelegate {
+class VkAuthManager: NSObject, AuthDelegate, VKSdkDelegate, VKSdkUIDelegate {
+    
     var token: String = ""
     
-    func auth() {
+    var presentController: UIViewController
+    var scope: [String]
+    
+    let vkAppId: String = ""
+    let vkSdk: VKSdk = VKSdk.initialize(withAppId: "")
+    
+    init(scope: [String], controller: UIViewController) {
+        self.scope = scope
+        self.presentController = controller
+        super.init()
         
+        vkSdk.register(self)
+        vkSdk.uiDelegate = self
+    }
+    
+    func auth() {
+        VKSdk.authorize(scope)
+    }
+    
+    func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
+        if let token = result.token {
+            print("token: \(String(describing: token))")
+        } else if let error = result.error {
+            print("token: \(String(describing: error.localizedDescription))")
+        }
+    }
+    
+    func vkSdkUserAuthorizationFailed() {
+        print("Auth failed")
+    }
+    
+    func vkSdkShouldPresent(_ controller: UIViewController!) {
+        self.presentController.present(controller, animated: true, completion: nil)
+    }
+    
+    func vkSdkNeedCaptchaEnter(_ captchaError: VKError!) {
+        print("vkSdkNeedCaptchaEnter, \(captchaError.debugDescription)")
     }
 }
