@@ -16,12 +16,13 @@ class VkAuthManager: NSObject, AuthDelegate, VKSdkDelegate, VKSdkUIDelegate {
     var presentController: UIViewController
     var scope: [String]
     
-    let vkAppId: String = ""
-    let vkSdk: VKSdk = VKSdk.initialize(withAppId: "")
+    let vkAppId: String = "7569404"
+    let vkSdk: VKSdk
     
     init(scope: [String], controller: UIViewController) {
         self.scope = scope
         self.presentController = controller
+        self.vkSdk = VKSdk.initialize(withAppId: self.vkAppId)
         super.init()
         
         vkSdk.register(self)
@@ -29,14 +30,25 @@ class VkAuthManager: NSObject, AuthDelegate, VKSdkDelegate, VKSdkUIDelegate {
     }
     
     func auth() {
-        VKSdk.authorize(scope)
+        VKSdk.wakeUpSession(scope) { (state, error) in
+            if let err = error {
+                print(err.localizedDescription)
+            }
+            
+            if state == .authorized {
+                print("Auth")
+            } else {
+                VKSdk.authorize(self.scope, with: .disableSafariController)
+            }
+        }
     }
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
         if let token = result.token {
-            print("token: \(String(describing: token))")
+            print("token: \(String(describing: token.accessToken))")
+            print("expires in: \(token.expiresIn)")
         } else if let error = result.error {
-            print("token: \(String(describing: error.localizedDescription))")
+            print("error: \(String(describing: error.localizedDescription))")
         }
     }
     
