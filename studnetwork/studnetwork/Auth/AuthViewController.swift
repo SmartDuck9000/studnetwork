@@ -27,6 +27,17 @@ class AuthViewController: UIViewController {
         setupLayout()
     }
     
+    public func presentProfile() {
+        
+    }
+    
+    public func showError(title: String, message: String, actionTitle: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: actionTitle, style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
     private func setupLayout() {
         self.view.backgroundColor = viewBackgroundColor
         setupAuthImageView()

@@ -13,13 +13,13 @@ class VkAuthManager: NSObject, AuthDelegate, VKSdkDelegate, VKSdkUIDelegate {
     
     var token: String = ""
     
-    var presentController: UIViewController
+    var presentController: AuthViewController
     var scope: [String]
     
     let vkAppId: String = "7569404"
     let vkSdk: VKSdk
     
-    init(scope: [String], controller: UIViewController) {
+    init(scope: [String], controller: AuthViewController) {
         self.scope = scope
         self.presentController = controller
         self.vkSdk = VKSdk.initialize(withAppId: self.vkAppId)
@@ -35,25 +35,28 @@ class VkAuthManager: NSObject, AuthDelegate, VKSdkDelegate, VKSdkUIDelegate {
                 print(err.localizedDescription)
             }
             
-            if state == .authorized {
-                print("Auth")
-            } else {
+            if state != .authorized {
                 VKSdk.authorize(self.scope, with: .disableSafariController)
             }
         }
     }
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
-        if let token = result.token {
-            print("token: \(String(describing: token.accessToken))")
-            print("expires in: \(token.expiresIn)")
-        } else if let error = result.error {
+        if let error = result.error {
             print("error: \(String(describing: error.localizedDescription))")
+            self.presentController.showError(title: "Ошибка авторизации", message: "Пожалуйста, повторите вход", actionTitle: "OK")
+        } else if let token = result.token {
+            let networkManager = NetworkManager()
+            let database = DatabaseManager()
+            let userToken = networkManager.send(token: token.accessToken)
+            
+            database.save(token: userToken)
+            self.presentController.presentProfile()
         }
     }
     
     func vkSdkUserAuthorizationFailed() {
-        print("Auth failed")
+        self.presentController.showError(title: "Ошибка авторизации", message: "Пожалуйста, повторите вход", actionTitle: "OK")
     }
     
     func vkSdkShouldPresent(_ controller: UIViewController!) {
