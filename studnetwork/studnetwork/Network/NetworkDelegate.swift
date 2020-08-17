@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol NetworkDelegate {
-    func send(token: String) -> String
+    func send(token: String) -> String?
 }
