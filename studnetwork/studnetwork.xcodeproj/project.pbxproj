@@ -12,6 +12,7 @@
 		CE5CA6B624EB09CA00D9BA03 /* DatabaseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5CA6B524EB09CA00D9BA03 /* DatabaseDelegate.swift */; };
 		CE5CA6B824EB0A6900D9BA03 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5CA6B724EB0A6900D9BA03 /* NetworkManager.swift */; };
 		CE5CA6BA24EB0A8F00D9BA03 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5CA6B924EB0A8F00D9BA03 /* DatabaseManager.swift */; };
+		CE5CA6BD24EB2CE900D9BA03 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5CA6BC24EB2CE900D9BA03 /* User.swift */; };
 		CE639DF324DF251F00232500 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE639DF224DF251F00232500 /* AuthViewController.swift */; };
 		CE639DF524DF262600232500 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE639DF424DF262600232500 /* AuthPresenter.swift */; };
 		CE639DF724DF283B00232500 /* AuthDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE639DF624DF283B00232500 /* AuthDelegate.swift */; };
@@ -31,6 +32,7 @@
 		CE5CA6B524EB09CA00D9BA03 /* DatabaseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseDelegate.swift; sourceTree = "<group>"; };
 		CE5CA6B724EB0A6900D9BA03 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CE5CA6B924EB0A8F00D9BA03 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		CE5CA6BC24EB2CE900D9BA03 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CE639DF224DF251F00232500 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		CE639DF424DF262600232500 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		CE639DF624DF283B00232500 /* AuthDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,14 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		CE5CA6BB24EB2CC700D9BA03 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CE5CA6BC24EB2CE900D9BA03 /* User.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		CE639DF124DF202100232500 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +135,7 @@
 		CE690F1F24C641D900D49345 /* studnetwork */ = {
 			isa = PBXGroup;
 			children = (
+				CE5CA6BB24EB2CC700D9BA03 /* Profile */,
 				CE5CA6B424EB099F00D9BA03 /* Database */,
 				CE5CA6B124EB07FC00D9BA03 /* Network */,
 				CE639DF124DF202100232500 /* Auth */,
@@ -262,6 +273,7 @@
 				CE5CA6B624EB09CA00D9BA03 /* DatabaseDelegate.swift in Sources */,
 				CE639DF324DF251F00232500 /* AuthViewController.swift in Sources */,
 				CE690F2524C641D900D49345 /* ViewController.swift in Sources */,
+				CE5CA6BD24EB2CE900D9BA03 /* User.swift in Sources */,
 				CE5CA6B324EB082500D9BA03 /* NetworkDelegate.swift in Sources */,
 				CE690F2124C641D900D49345 /* AppDelegate.swift in Sources */,
 				CE690F2324C641D900D49345 /* SceneDelegate.swift in Sources */,
