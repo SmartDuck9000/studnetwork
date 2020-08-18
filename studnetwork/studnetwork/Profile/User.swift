@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct User: Codable {
+public struct User: Codable {
     var token: String
 }

@@ -9,14 +9,15 @@
 import UIKit
 
 class NetworkManager: NetworkDelegate {
-    func send(token: String) -> String? {
-        let queryItems: [URLQueryItem] = [URLQueryItem(name: "access_token", value: token)]
+    
+    func createUser(accessToken: String) -> String? {
+        let queryItems: [URLQueryItem] = [URLQueryItem(name: "access_token", value: accessToken)]
         guard let url = getUrl(path: "/api/login", queryItems: queryItems) else { return nil }
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
         
-        var userToken: String? = nil
+        var userToken: String?
         
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             if let error = error {
@@ -38,6 +39,53 @@ class NetworkManager: NetworkDelegate {
         
         
         return userToken
+    }
+    
+    func getUser(token: String) -> User? {
+        var user: User?
+        let queryItems: [URLQueryItem] = [URLQueryItem(name: "token", value: token)]
+        guard let url = getUrl(path: "/api/user", queryItems: queryItems) else { return nil }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            if let data = data {
+                do {
+                    user = try JSONDecoder().decode(User.self, from: data)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }.resume()
+        
+        return user
+    }
+    
+    func update(user: User) {
+        let queryItems: [URLQueryItem] = [URLQueryItem(name: "token", value: user.token)]
+        guard let url = getUrl(path: "/api/user", queryItems: queryItems) else { return }
+        var data: Data?
+        
+        do {
+            data = try JSONEncoder().encode(user)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "PUT"
+        urlRequest.httpBody = data
+        
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }.resume()
     }
     
     private func getUrl(path: String, queryItems: [URLQueryItem]) -> URL? {
