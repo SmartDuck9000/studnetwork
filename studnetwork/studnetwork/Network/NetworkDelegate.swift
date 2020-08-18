@@ -9,5 +9,7 @@
 import Foundation
 
 public protocol NetworkDelegate {
-    func send(token: String) -> String
+    func createUser(accessToken: String) -> String?
+    func getUser(token: String) -> User?
+    func update(user: User)
 }
