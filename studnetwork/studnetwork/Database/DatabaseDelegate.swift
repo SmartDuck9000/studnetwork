@@ -9,5 +9,8 @@
 import Foundation
 
 public protocol DatabaseDelegate {
-    func save(token: String)
+    func create(user: User) throws
+    func read() throws -> [User]
+    func update(user: User) throws
+    func delete(user: User) throws
 }
