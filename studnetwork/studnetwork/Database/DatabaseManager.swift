@@ -11,7 +11,7 @@ import CoreData
 
 class DatabaseManager: DatabaseDelegate {
     
-    private let persistentContainer = NSPersistentContainer(name: "LibraryDataModel")
+    private let persistentContainer = NSPersistentContainer(name: "studnetwork")
     
     private var context: NSManagedObjectContext {
         return self.persistentContainer.viewContext
