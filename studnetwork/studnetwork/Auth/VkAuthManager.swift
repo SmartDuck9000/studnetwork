@@ -49,8 +49,16 @@ class VkAuthManager: NSObject, AuthDelegate, VKSdkDelegate, VKSdkUIDelegate {
             let networkManager: NetworkDelegate = NetworkManager()
             let database: DatabaseDelegate = DatabaseManager()
             
-            if let userToken = networkManager.send(token: token.accessToken) {
-                database.save(token: userToken)
+            if let userToken = networkManager.createUser(accessToken: token.accessToken) {
+                let user = User()
+                user.token = userToken
+                
+                do {
+                    try database.create(user: user)
+                } catch {
+                    print(error.localizedDescription)
+                }
+                
                 self.presentController.presentProfile()
             } else {
                 self.presentController.showError(title: "Ошибка авторизации", message: "Пожалуйста, повторите вход", actionTitle: "OK")
