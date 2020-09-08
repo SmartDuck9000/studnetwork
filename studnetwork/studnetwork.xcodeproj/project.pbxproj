@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		730259D5D499DBF77CD619CF /* Pods_studnetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A8BBF4B76A0B59406CAE00 /* Pods_studnetwork.framework */; };
+		CE0F5EA724FB0027009AEBFD /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F5EA624FB0027009AEBFD /* ProfileView.swift */; };
+		CE0F5EA924FB0036009AEBFD /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F5EA824FB0036009AEBFD /* ProfilePresenter.swift */; };
+		CE0F5EAB24FB0084009AEBFD /* ProfileDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F5EAA24FB0084009AEBFD /* ProfileDelegate.swift */; };
+		CE0F5EAD24FB009C009AEBFD /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F5EAC24FB009C009AEBFD /* ProfileModel.swift */; };
 		CE5CA6B324EB082500D9BA03 /* NetworkDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5CA6B224EB082500D9BA03 /* NetworkDelegate.swift */; };
 		CE5CA6B624EB09CA00D9BA03 /* DatabaseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5CA6B524EB09CA00D9BA03 /* DatabaseDelegate.swift */; };
 		CE5CA6B824EB0A6900D9BA03 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5CA6B724EB0A6900D9BA03 /* NetworkManager.swift */; };
@@ -30,6 +34,10 @@
 /* Begin PBXFileReference section */
 		676324B5F78ED87505800164 /* Pods-studnetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-studnetwork.release.xcconfig"; path = "Target Support Files/Pods-studnetwork/Pods-studnetwork.release.xcconfig"; sourceTree = "<group>"; };
 		86A8BBF4B76A0B59406CAE00 /* Pods_studnetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_studnetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE0F5EA624FB0027009AEBFD /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		CE0F5EA824FB0036009AEBFD /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		CE0F5EAA24FB0084009AEBFD /* ProfileDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDelegate.swift; sourceTree = "<group>"; };
+		CE0F5EAC24FB009C009AEBFD /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		CE5CA6B224EB082500D9BA03 /* NetworkDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDelegate.swift; sourceTree = "<group>"; };
 		CE5CA6B524EB09CA00D9BA03 /* DatabaseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseDelegate.swift; sourceTree = "<group>"; };
 		CE5CA6B724EB0A6900D9BA03 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -104,6 +112,10 @@
 			children = (
 				CEC947C424F6B6A2004F2458 /* User+CoreDataProperties.swift */,
 				CEC947BA24F69EFA004F2458 /* User+CoreDataClass.swift */,
+				CE0F5EA624FB0027009AEBFD /* ProfileView.swift */,
+				CE0F5EA824FB0036009AEBFD /* ProfilePresenter.swift */,
+				CE0F5EAA24FB0084009AEBFD /* ProfileDelegate.swift */,
+				CE0F5EAC24FB009C009AEBFD /* ProfileModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -277,12 +289,16 @@
 				CEC947BC24F69EFA004F2458 /* User+CoreDataClass.swift in Sources */,
 				CE639DF924DF2B2900232500 /* VkAuthManager.swift in Sources */,
 				CE5CA6B824EB0A6900D9BA03 /* NetworkManager.swift in Sources */,
+				CE0F5EAB24FB0084009AEBFD /* ProfileDelegate.swift in Sources */,
 				CE639DF724DF283B00232500 /* AuthDelegate.swift in Sources */,
 				CE5CA6B624EB09CA00D9BA03 /* DatabaseDelegate.swift in Sources */,
+				CE0F5EAD24FB009C009AEBFD /* ProfileModel.swift in Sources */,
 				CE639DF324DF251F00232500 /* AuthViewController.swift in Sources */,
 				CE690F2524C641D900D49345 /* ViewController.swift in Sources */,
+				CE0F5EA924FB0036009AEBFD /* ProfilePresenter.swift in Sources */,
 				CEC947C524F6B6A2004F2458 /* User+CoreDataProperties.swift in Sources */,
 				CE5CA6B324EB082500D9BA03 /* NetworkDelegate.swift in Sources */,
+				CE0F5EA724FB0027009AEBFD /* ProfileView.swift in Sources */,
 				CE690F2124C641D900D49345 /* AppDelegate.swift in Sources */,
 				CE690F2324C641D900D49345 /* SceneDelegate.swift in Sources */,
 			);
