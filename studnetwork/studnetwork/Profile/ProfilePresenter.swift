@@ -16,4 +16,16 @@ class ProfilePresenter {
         self.profileView = view
         self.profileModel = model
     }
+    
+    public func updateUser() {
+        
+    }
+    
+    public func getUser() {
+        
+    }
+    
+    public func exit() {
+        
+    }
 }
