@@ -28,7 +28,8 @@ class AuthViewController: UIViewController {
     }
     
     public func presentProfile() {
-        
+        let profileView = ProfileView()
+        self.present(profileView, animated: true)
     }
     
     public func showError(title: String, message: String, actionTitle: String) {
