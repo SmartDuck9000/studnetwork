@@ -10,14 +10,15 @@ import UIKit
 
 class NetworkManager: NetworkDelegate {
     
-    func createUser(accessToken: String) -> String? {
+    func createUser(accessToken: String, complition: (_ token: String?) -> ()) {
         let queryItems: [URLQueryItem] = [URLQueryItem(name: "access_token", value: accessToken)]
-        guard let url = getUrl(path: "/api/login", queryItems: queryItems) else { return nil }
+        guard let url = getUrl(path: "/api/login", queryItems: queryItems) else {
+            complition(nil)
+            return
+        }
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
-        
-        var userToken: String?
         
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             if let error = error {
@@ -27,24 +28,31 @@ class NetworkManager: NetworkDelegate {
             if let data = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    guard let dict = json as? NSDictionary else { return }
-                    guard let usrToken = dict["token"] as? String else { return }
+                    guard let dict = json as? NSDictionary else {
+                        complition(nil)
+                        return
+                    }
                     
-                    userToken = usrToken
+                    guard let userToken = dict["token"] as? String else {
+                        complition(nil)
+                        return
+                    }
+                    
+                    complition(userToken)
                 } catch {
                     print(error.localizedDescription)
                 }
             }
         }.resume()
-        
-        
-        return userToken
     }
     
-    func getUser(token: String) -> User? {
+    func getUser(token: String, complition: (_ user: User?) -> ()) {
         var user: User?
         let queryItems: [URLQueryItem] = [URLQueryItem(name: "token", value: token)]
-        guard let url = getUrl(path: "/api/user", queryItems: queryItems) else { return nil }
+        guard let url = getUrl(path: "/api/user", queryItems: queryItems) else {
+            complition(nil)
+            return
+        }
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
@@ -57,16 +65,15 @@ class NetworkManager: NetworkDelegate {
             if let data = data {
                 do {
                     user = try JSONDecoder().decode(User.self, from: data)
+                    complition(user)
                 } catch {
                     print(error.localizedDescription)
                 }
             }
         }.resume()
-        
-        return user
     }
     
-    func update(user: User) {
+    func update(user: User, complition: (() -> ())? = nil) {
         let queryItems: [URLQueryItem] = [URLQueryItem(name: "token", value: user.token)]
         guard let url = getUrl(path: "/api/user", queryItems: queryItems) else { return }
         var data: Data?
@@ -85,6 +92,8 @@ class NetworkManager: NetworkDelegate {
             if let error = error {
                 print(error.localizedDescription)
             }
+            
+            if let complition = complition { complition() }
         }.resume()
     }
     
