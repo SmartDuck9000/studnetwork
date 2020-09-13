@@ -21,7 +21,7 @@ class ProfileModel: ProfileDelegate {
         try databaseManager.update(user: user)
     }
     
-    func getUser(complition: (User?) -> ()) {
+    func getUser(complition: @escaping (User?) -> ()) {
         do {
             let users = try databaseManager.read()
             if users.count == 1 {

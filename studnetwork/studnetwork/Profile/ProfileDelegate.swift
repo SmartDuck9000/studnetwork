@@ -10,6 +10,6 @@ import Foundation
 
 protocol ProfileDelegate {
     func updateUser(user: User) throws
-    func getUser(complition: (_ user: User?) -> ())
+    func getUser(complition: @escaping (_ user: User?) -> ())
     func exit()
 }

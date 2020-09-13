@@ -10,7 +10,7 @@ import UIKit
 
 class NetworkManager: NetworkDelegate {
     
-    func createUser(accessToken: String, complition: (_ token: String?) -> ()) {
+    func createUser(accessToken: String, complition: @escaping (_ token: String?) -> ()) {
         let queryItems: [URLQueryItem] = [URLQueryItem(name: "access_token", value: accessToken)]
         guard let url = getUrl(path: "/api/login", queryItems: queryItems) else {
             complition(nil)
@@ -46,7 +46,7 @@ class NetworkManager: NetworkDelegate {
         }.resume()
     }
     
-    func getUser(token: String, complition: (_ user: User?) -> ()) {
+    func getUser(token: String, complition: @escaping (_ user: User?) -> ()) {
         var user: User?
         let queryItems: [URLQueryItem] = [URLQueryItem(name: "token", value: token)]
         guard let url = getUrl(path: "/api/user", queryItems: queryItems) else {

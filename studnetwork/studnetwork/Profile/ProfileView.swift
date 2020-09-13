@@ -12,8 +12,12 @@ class ProfileView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupLayout()
         // Do any additional setup after loading the view.
+    }
+    
+    private func setupLayout() {
+        
     }
     
 
